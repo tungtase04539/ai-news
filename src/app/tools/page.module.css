@@ -1,0 +1,248 @@
+.page {
+  background: var(--background);
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: white;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* Search */
+.searchWrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.25rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 3rem;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.searchInput:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Category Section */
+.categorySection {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 50;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.categoryBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  color: var(--foreground-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryBtn:hover {
+  border-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.categoryBtn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.catIcon {
+  font-size: 1.1rem;
+}
+
+/* Content */
+.content {
+  padding: 3rem 0;
+}
+
+.resultInfo {
+  margin-bottom: 2rem;
+}
+
+.resultCount {
+  font-size: 1rem;
+  color: var(--foreground-secondary);
+  font-weight: 500;
+}
+
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Empty State */
+.empty {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--foreground-secondary);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.empty h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+/* Submit Section */
+.submitSection {
+  padding: 3rem 0;
+  background: var(--background-secondary);
+}
+
+.submitBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.submitContent h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.submitContent p {
+  color: var(--foreground-secondary);
+  font-size: 0.95rem;
+}
+
+.submitBtn {
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .toolGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .toolGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .submitBanner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .categories {
+    overflow-x: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .categoryBtn {
+    flex-shrink: 0;
+  }
+
+  .toolGrid {
+    grid-template-columns: 1fr;
+  }
+}

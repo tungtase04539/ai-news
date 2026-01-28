@@ -1,0 +1,293 @@
+.page {
+  background: var(--background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--foreground-secondary);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Benefits Section */
+.benefitsSection {
+  padding: 5rem 0;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.benefitCard {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.benefitCard:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1);
+  transform: translateY(-4px);
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.benefitTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.benefitDesc {
+  font-size: 0.9rem;
+  color: var(--foreground-secondary);
+  line-height: 1.6;
+}
+
+/* Pricing Section */
+.pricingSection {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+}
+
+.pricingSection .sectionTitle {
+  color: white;
+}
+
+.pricingCard {
+  max-width: 480px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.pricingBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #78350f;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pricingName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.pricingPrice {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.amount {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.period {
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.pricingNote {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.pricingFeatures {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.pricingFeatures li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.pricingFeatures li:last-child {
+  border-bottom: none;
+}
+
+.pricingBtn {
+  width: 100%;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pricingBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+.pricingGuarantee {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 1rem;
+}
+
+/* FAQ Section */
+.faqSection {
+  padding: 5rem 0;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.faqQuestion {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.faqAnswer {
+  font-size: 0.95rem;
+  color: var(--foreground-secondary);
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 5rem 0;
+  background: var(--background-secondary);
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.ctaContent p {
+  font-size: 1.1rem;
+  color: var(--foreground-secondary);
+  margin-bottom: 2rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  padding: 1.25rem 3rem;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #78350f;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricingCard {
+    padding: 2rem;
+  }
+
+  .amount {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaContent h2 {
+    font-size: 1.5rem;
+  }
+}
