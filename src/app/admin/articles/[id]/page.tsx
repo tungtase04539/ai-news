@@ -29,6 +29,7 @@ export default function EditArticlePage() {
   const params = useParams();
   const router = useRouter();
   const { articles, updateArticle } = useData();
+  const [isLoaded, setIsLoaded] = useState(false);
   
   const [formData, setFormData] = useState({
     title: '',
@@ -42,18 +43,21 @@ export default function EditArticlePage() {
 
   useEffect(() => {
     const article = articles.find(a => a.id === params.id);
-    if (article) {
+    if (article && !isLoaded) {
+      console.log('Loading article:', article);
+      console.log('Article content:', article.content);
       setFormData({
         title: article.title,
         excerpt: article.excerpt,
-        content: (article as unknown as { content?: string }).content || '',
+        content: article.content || '',
         author: article.author,
         category: article.category,
         isVip: article.isVip,
         tags: (article.tags || []).join(', '),
       });
+      setIsLoaded(true);
     }
-  }, [params.id, articles]);
+  }, [params.id, articles, isLoaded]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
