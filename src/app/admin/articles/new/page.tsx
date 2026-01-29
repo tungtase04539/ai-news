@@ -6,6 +6,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useData } from '@/context/DataContext';
 import { ArticleCategory } from '@/types';
+import ImageUpload from '@/components/ui/ImageUpload';
 import styles from '../../form.module.css';
 
 // Dynamic import to avoid SSR issues with TipTap
@@ -79,19 +80,13 @@ export default function NewArticlePage() {
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label}>Ảnh đại diện (URL)</label>
-              <input
-                type="url"
+              <label className={styles.label}>Ảnh đại diện</label>
+              <ImageUpload
                 value={formData.thumbnail}
-                onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
-                className={styles.input}
-                placeholder="https://example.com/image.jpg (để trống nếu dùng ảnh mặc định)"
+                onChange={(url) => setFormData({ ...formData, thumbnail: url })}
+                folder="articles"
+                placeholder="Chọn ảnh hoặc kéo thả vào đây"
               />
-              {formData.thumbnail && (
-                <div className={styles.imagePreview}>
-                  <img src={formData.thumbnail} alt="Preview" onError={(e) => e.currentTarget.style.display = 'none'} />
-                </div>
-              )}
             </div>
 
             <div className={styles.row}>
