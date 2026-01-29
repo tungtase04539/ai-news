@@ -46,6 +46,7 @@ export async function PUT(
       .update({
         title: body.title,
         excerpt: body.excerpt,
+        content: body.content,
         thumbnail: body.thumbnail,
         author: body.author,
         category: body.category,

@@ -35,6 +35,7 @@ export async function POST(request: Request) {
       .insert({
         title: body.title,
         excerpt: body.excerpt,
+        content: body.content || '',
         thumbnail: body.thumbnail || '/images/articles/default.jpg',
         author: body.author,
         date: body.date || new Date().toISOString().split('T')[0],

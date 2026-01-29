@@ -38,6 +38,7 @@ export interface DBArticle {
   id: string;
   title: string;
   excerpt: string;
+  content?: string;
   thumbnail: string;
   author: string;
   date: string;
@@ -85,6 +86,7 @@ export function dbArticleToApp(db: DBArticle) {
     id: db.id,
     title: db.title,
     excerpt: db.excerpt,
+    content: db.content || '',
     thumbnail: db.thumbnail,
     author: db.author,
     date: db.date,
