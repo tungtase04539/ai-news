@@ -8,7 +8,7 @@ import Placeholder from '@tiptap/extension-placeholder';
 import TextAlign from '@tiptap/extension-text-align';
 import Underline from '@tiptap/extension-underline';
 import Highlight from '@tiptap/extension-highlight';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import styles from './RichTextEditor.module.css';
 
 interface RichTextEditorProps {
@@ -18,6 +18,9 @@ interface RichTextEditorProps {
 }
 
 export default function RichTextEditor({ content, onChange, placeholder = 'Viết nội dung bài viết...' }: RichTextEditorProps) {
+  const isInitialMount = useRef(true);
+  const previousContent = useRef(content);
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -47,7 +50,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Viế
         multicolor: true,
       }),
     ],
-    content,
+    content: content || '',
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
@@ -57,6 +60,19 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Viế
       },
     },
   });
+
+  // Sync content when it changes externally (e.g., when loading article data)
+  useEffect(() => {
+    if (editor && content !== previousContent.current) {
+      // Only update if content is different and editor exists
+      const currentEditorContent = editor.getHTML();
+      if (content && content !== currentEditorContent && content !== '<p></p>') {
+        editor.commands.setContent(content);
+      }
+      previousContent.current = content;
+    }
+    isInitialMount.current = false;
+  }, [content, editor]);
 
   const addImage = useCallback(() => {
     const url = window.prompt('Nhập URL hình ảnh:');
