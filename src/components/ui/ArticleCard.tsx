@@ -16,7 +16,18 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
       className={`${styles.card} ${isHorizontal ? styles.horizontal : ''}`}
     >
       <div className={styles.imageWrapper}>
-        <div className={styles.imagePlaceholder}>
+        {article.thumbnail && !article.thumbnail.includes('default') ? (
+          <img 
+            src={article.thumbnail} 
+            alt={article.title}
+            className={styles.image}
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.nextElementSibling?.classList.remove(styles.hidden);
+            }}
+          />
+        ) : null}
+        <div className={`${styles.imagePlaceholder} ${article.thumbnail && !article.thumbnail.includes('default') ? styles.hidden : ''}`}>
           <span className={styles.categoryIcon}>
             {getCategoryIcon(article.category)}
           </span>

@@ -83,10 +83,18 @@ export default function ArticleDetailPage() {
 
           {/* Featured Image */}
           <div className={styles.featuredImage}>
-            <div className={styles.imagePlaceholder}>
-              <span>📰</span>
-              <p>Hình ảnh bài viết</p>
-            </div>
+            {article.thumbnail && !article.thumbnail.includes('default') ? (
+              <img 
+                src={article.thumbnail} 
+                alt={article.title}
+                className={styles.featuredImageImg}
+              />
+            ) : (
+              <div className={styles.imagePlaceholder}>
+                <span>📰</span>
+                <p>Hình ảnh bài viết</p>
+              </div>
+            )}
           </div>
 
           {/* Article Content */}

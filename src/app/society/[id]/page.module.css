@@ -158,6 +158,12 @@
   font-size: 4rem;
 }
 
+.featuredImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Grid */
 .grid {
   display: grid;
