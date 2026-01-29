@@ -35,6 +35,7 @@ export default function EditArticlePage() {
     title: '',
     excerpt: '',
     content: '',
+    thumbnail: '',
     author: '',
     category: 'news' as ArticleCategory,
     isVip: false,
@@ -50,6 +51,7 @@ export default function EditArticlePage() {
         title: article.title,
         excerpt: article.excerpt,
         content: article.content || '',
+        thumbnail: article.thumbnail || '',
         author: article.author,
         category: article.category,
         isVip: article.isVip,
@@ -89,6 +91,22 @@ export default function EditArticlePage() {
                 className={styles.input}
                 required
               />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Ảnh đại diện (URL)</label>
+              <input
+                type="url"
+                value={formData.thumbnail}
+                onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
+                className={styles.input}
+                placeholder="https://example.com/image.jpg"
+              />
+              {formData.thumbnail && (
+                <div className={styles.imagePreview}>
+                  <img src={formData.thumbnail} alt="Preview" onError={(e) => e.currentTarget.style.display = 'none'} />
+                </div>
+              )}
             </div>
 
             <div className={styles.row}>

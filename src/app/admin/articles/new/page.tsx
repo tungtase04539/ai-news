@@ -33,6 +33,7 @@ export default function NewArticlePage() {
     title: '',
     excerpt: '',
     content: '',
+    thumbnail: '',
     author: '',
     category: 'news' as ArticleCategory,
     isVip: false,
@@ -43,7 +44,7 @@ export default function NewArticlePage() {
     e.preventDefault();
     addArticle({
       ...formData,
-      thumbnail: '/images/articles/default.jpg',
+      thumbnail: formData.thumbnail || '/images/articles/default.jpg',
       date: new Date().toISOString().split('T')[0],
       views: 0,
       likes: 0,
@@ -75,6 +76,22 @@ export default function NewArticlePage() {
                 placeholder="VD: OpenAI Ra Mắt GPT-5: Những Điều Cần Biết"
                 required
               />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Ảnh đại diện (URL)</label>
+              <input
+                type="url"
+                value={formData.thumbnail}
+                onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
+                className={styles.input}
+                placeholder="https://example.com/image.jpg (để trống nếu dùng ảnh mặc định)"
+              />
+              {formData.thumbnail && (
+                <div className={styles.imagePreview}>
+                  <img src={formData.thumbnail} alt="Preview" onError={(e) => e.currentTarget.style.display = 'none'} />
+                </div>
+              )}
             </div>
 
             <div className={styles.row}>

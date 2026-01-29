@@ -189,3 +189,18 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Image Preview */
+.imagePreview {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.imagePreview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
