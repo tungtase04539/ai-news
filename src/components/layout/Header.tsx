@@ -113,10 +113,10 @@ export default function Header() {
                   <Link href="/profile" className={styles.dropdownItem}>
                     👤 Hồ sơ của tôi
                   </Link>
-                  <Link href="/my-courses" className={styles.dropdownItem}>
+                  <Link href="/ai-course" className={styles.dropdownItem}>
                     📚 Khóa học của tôi
                   </Link>
-                  <Link href="/settings" className={styles.dropdownItem}>
+                  <Link href="/profile/settings" className={styles.dropdownItem}>
                     ⚙️ Cài đặt
                   </Link>
                   <button onClick={handleLogout} className={styles.logoutButton}>
