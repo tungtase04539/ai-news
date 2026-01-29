@@ -202,6 +202,89 @@
   color: var(--foreground);
 }
 
+/* Rich Content from Editor */
+.richContent {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--foreground-secondary);
+}
+
+.richContent h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 2rem 0 1rem;
+}
+
+.richContent h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 2rem 0 1rem;
+}
+
+.richContent h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 1.5rem 0 0.75rem;
+}
+
+.richContent p {
+  margin-bottom: 1.5rem;
+}
+
+.richContent ul,
+.richContent ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.richContent li {
+  margin-bottom: 0.5rem;
+}
+
+.richContent blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--foreground);
+}
+
+.richContent a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.richContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.richContent pre {
+  background: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.richContent code {
+  background: var(--background-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+.noContent {
+  color: var(--foreground-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
 /* VIP Content */
 .vipContent {
   position: relative;

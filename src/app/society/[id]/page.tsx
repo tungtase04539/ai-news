@@ -111,23 +111,17 @@ export default function ArticleDetailPage() {
                 </div>
               ) : (
                 <div className={styles.articleBody}>
-                  <p className={styles.lead}>{article.excerpt}</p>
-                  
-                  <h2>Giới Thiệu</h2>
-                  <p>Trong bối cảnh công nghệ AI đang phát triển với tốc độ chóng mặt, việc cập nhật những thông tin mới nhất là vô cùng quan trọng. Bài viết này sẽ đi sâu vào phân tích và giải thích những điểm cốt lõi mà bạn cần biết.</p>
-                  
-                  <h2>Nội Dung Chính</h2>
-                  <p>Các chuyên gia trong ngành đánh giá rằng đây là một bước tiến quan trọng trong lĩnh vực trí tuệ nhân tạo. Với những cải tiến đáng kể về hiệu suất và khả năng xử lý, công nghệ mới hứa hẹn mang lại nhiều giá trị thiết thực cho người dùng.</p>
-                  
-                  <blockquote>
-                    "Đây là một bước nhảy vọt trong công nghệ AI, mở ra nhiều cơ hội mới cho cả doanh nghiệp và cá nhân." - Chuyên gia AI
-                  </blockquote>
-                  
-                  <h2>Ý Nghĩa Và Tác Động</h2>
-                  <p>Sự phát triển này không chỉ có ý nghĩa về mặt công nghệ mà còn tác động đến nhiều lĩnh vực khác nhau trong đời sống. Từ giáo dục, y tế đến sáng tạo nội dung, AI đang dần trở thành một phần không thể thiếu.</p>
-                  
-                  <h2>Kết Luận</h2>
-                  <p>Tương lai của AI rất hứa hẹn và chúng ta đang ở trong một giai đoạn chuyển đổi quan trọng. Việc nắm bắt xu hướng và học hỏi những công nghệ mới sẽ giúp bạn không bị bỏ lại phía sau trong cuộc cách mạng công nghệ này.</p>
+                  {article.content ? (
+                    <div 
+                      className={styles.richContent}
+                      dangerouslySetInnerHTML={{ __html: article.content }}
+                    />
+                  ) : (
+                    <>
+                      <p className={styles.lead}>{article.excerpt}</p>
+                      <p className={styles.noContent}>Nội dung bài viết đang được cập nhật...</p>
+                    </>
+                  )}
                 </div>
               )}
 
