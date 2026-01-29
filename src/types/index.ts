@@ -28,6 +28,7 @@ export interface Article {
   id: string;
   title: string;
   excerpt: string;
+  content?: string;
   thumbnail: string;
   author: string;
   authorAvatar?: string;

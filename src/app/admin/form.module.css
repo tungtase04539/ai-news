@@ -175,3 +175,17 @@
     text-align: center;
   }
 }
+
+/* Editor Loading */
+.editorLoading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--foreground-muted);
+  background: var(--background-secondary);
+  border: 1px dashed var(--border);
+  border-radius: 0.75rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

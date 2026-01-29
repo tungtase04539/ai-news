@@ -3,9 +3,19 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useData } from '@/context/DataContext';
 import { ArticleCategory } from '@/types';
 import styles from '../../form.module.css';
+
+// Dynamic import to avoid SSR issues with TipTap
+const RichTextEditor = dynamic(
+  () => import('@/components/editor/RichTextEditor'),
+  { 
+    ssr: false,
+    loading: () => <div className={styles.editorLoading}>Đang tải editor...</div>
+  }
+);
 
 const categories: { id: ArticleCategory; label: string }[] = [
   { id: 'news', label: 'Tin Tức' },
@@ -22,6 +32,7 @@ export default function NewArticlePage() {
   const [formData, setFormData] = useState({
     title: '',
     excerpt: '',
+    content: '',
     author: '',
     category: 'news' as ArticleCategory,
     isVip: false,
@@ -100,8 +111,17 @@ export default function NewArticlePage() {
                 onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
                 className={styles.textarea}
                 rows={3}
-                placeholder="Mô tả ngắn về bài viết..."
+                placeholder="Mô tả ngắn về bài viết (hiển thị ở danh sách)..."
                 required
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Nội dung bài viết *</label>
+              <RichTextEditor
+                content={formData.content}
+                onChange={(content) => setFormData({ ...formData, content })}
+                placeholder="Viết nội dung bài viết đầy đủ tại đây..."
               />
             </div>
 
